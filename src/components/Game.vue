@@ -10,6 +10,7 @@
       <SideBar
         :questions="questions"
         :onClick="changeQuestion"
+        :current="current"
       />
     </aside>
   </div>
