@@ -1,0 +1,40 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Hello World!</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+    <body>
+    <div id="app">
+        <div :class="{invalid: isInvalid}">
+            {{ message }}
+        </div>
+        <ol>
+            <li v-for="(item, index) in items">
+                {{item}} at position {{index}}
+            </li>
+        </ol>
+        <input v-model="message" type="text"/>
+        <br/>
+        <button type="button" name="button" :disabled="isInvalid">Submit!</button>
+    </div>
+
+        <script>
+			var app = new Vue({
+				el: '#app',
+				data: {
+					message: 'Hello Vue!',
+                    items: ['apple', 'pear'],
+                    //isInvalid: true,
+				},
+				computed:{
+					isInvalid: function(){
+						return this.message.length <= 3
+                    }
+                },
+			})
+        </script>
+    </body>
+</html>
