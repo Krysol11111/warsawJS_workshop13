@@ -10,7 +10,7 @@
       <SideBar
         :questions="questions"
         :onClick="changeQuestion"
-        :current="current"
+        :currentRound="currentRound"
       />
     </aside>
   </div>
@@ -20,6 +20,7 @@
   import data from "../../db"
   import QuestionCard from "./QuestionCard"
   import SideBar from "./SideBar"
+  import {mapGetters,mapMutations} from 'vuex'
 
   const STATUSES = {
     'NOT_STARTED': 'not started',
@@ -30,17 +31,20 @@
 
   export default {
     name: 'Game',
+    created() {
+    	this.$store.dispatch('initGame')
+    },
     components:{
     	QuestionCard,
       SideBar,
     },
-    data () {
+    /*data () {
       return {
-      	current: 0,
+      	currentRound: 0,
         questions: data.questions,
         status: STATUSES.NOT_STARTED,
       }
-    },
+    },*/
     computed:{
       answers: function(){
       	const answers = [
@@ -49,24 +53,21 @@
         ];
         return answers;
       },
-      currentQuestion: function(){
-      	return this.questions[this.current];
-      },
+      /*currentQuestion: function(){
+      	return this.questions[this.currentRound];
+      },*/
+      ...mapGetters({
+        currentQuestion: 'currentQuestion',
+        questions: 'questions',
+        status: 'status',
+        currentRound: 'currentRound',
+      }),
     },
     methods:{
-    	checkAnswer: function (answer) {
-        const isAnswerCorrect = answer === this.currentQuestion.correct_answer;
-        if (isAnswerCorrect && this.current < this.questions.length-1){
-        	this.current++;
-        } else if (isAnswerCorrect) {
-          this.status = STATUSES.WON;
-        } else{
-          this.status = STATUSES.LOST;
-        }
-      },
-      changeQuestion(index){
-    		this.current = index;
-      }
+      ...mapMutations({
+        checkAnswer: 'checkAnswer',
+        changeQuestion: 'changeQuestion',
+      })
     },
     watch:{
       status: function(value,oldValue){
