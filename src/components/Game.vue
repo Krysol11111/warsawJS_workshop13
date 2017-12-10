@@ -21,6 +21,13 @@
   import QuestionCard from "./QuestionCard"
   import SideBar from "./SideBar"
 
+  const STATUSES = {
+    'NOT_STARTED': 'not started',
+    'PLAYING': 'playing',
+    'WON': 'won',
+    'LOST': 'lost',
+  }
+
   export default {
     name: 'Game',
     components:{
@@ -31,6 +38,7 @@
       return {
       	current: 0,
         questions: data.questions,
+        status: STATUSES.NOT_STARTED,
       }
     },
     computed:{
@@ -50,10 +58,24 @@
         const isAnswerCorrect = answer === this.currentQuestion.correct_answer;
         if (isAnswerCorrect && this.current < this.questions.length-1){
         	this.current++;
+        } else if (isAnswerCorrect) {
+          this.status = STATUSES.WON;
+        } else{
+          this.status = STATUSES.LOST;
         }
       },
       changeQuestion(index){
     		this.current = index;
+      }
+    },
+    watch:{
+      status: function(value,oldValue){
+    		if(value === STATUSES.WON){
+          this.$router.push("Won");
+        }
+        if(value === STATUSES.LOST){
+          this.$router.push("Lost");
+        }
       }
     }
   }
