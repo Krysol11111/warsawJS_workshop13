@@ -4,7 +4,26 @@
     <head>
         <meta charset="utf-8">
         <title>Hello World!</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     </head>
     <body>
+    <div id="app">
+        {{ message }}
+        <ol>
+            <li v-for="(item, index) in items">
+                {{item}} at position {{index}}
+            </li>
+        </ol>
+    </div>
+
+        <script>
+			var app = new Vue({
+				el: '#app',
+				data: {
+					message: 'Hello Vue!',
+                    items: ['apple', 'pear']
+				}
+			})
+        </script>
     </body>
 </html>
