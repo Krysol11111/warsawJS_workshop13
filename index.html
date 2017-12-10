@@ -8,12 +8,17 @@
     </head>
     <body>
     <div id="app">
-        {{ message }}
+        <div :class="{invalid: isInvalid}">
+            {{ message }}
+        </div>
         <ol>
             <li v-for="(item, index) in items">
                 {{item}} at position {{index}}
             </li>
         </ol>
+        <input v-model="message" type="text"/>
+        <br/>
+        <button type="button" name="button" :disabled="isInvalid">Submit!</button>
     </div>
 
         <script>
@@ -21,8 +26,14 @@
 				el: '#app',
 				data: {
 					message: 'Hello Vue!',
-                    items: ['apple', 'pear']
-				}
+                    items: ['apple', 'pear'],
+                    //isInvalid: true,
+				},
+				computed:{
+					isInvalid: function(){
+						return this.message.length <= 3
+                    }
+                },
 			})
         </script>
     </body>

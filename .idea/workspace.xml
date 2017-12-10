@@ -20,8 +20,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+            <state relative-caret-position="450">
+              <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -46,8 +46,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="247" />
-    <option name="y" value="60" />
+    <option name="x" value="376" />
+    <option name="y" value="45" />
     <option name="width" value="1426" />
     <option name="height" value="1000" />
   </component>
@@ -112,15 +112,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1512898179863</updated>
-      <workItem from="1512898181165" duration="940000" />
+      <workItem from="1512898181165" duration="2457000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="940000" />
+    <option name="totallyTimeSpent" value="2457000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="247" y="60" width="1426" height="1000" extended-state="0" />
+    <frame x="376" y="45" width="1426" height="1000" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964938" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -154,8 +154,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+        <state relative-caret-position="450">
+          <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
           <folding />
         </state>
       </provider>
