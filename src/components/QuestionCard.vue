@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="QuestionCard">
     <h3>{{this.question.question}}</h3>
     <ol>
       <li v-for="answer in answers" @click="onAnswer(answer)">{{answer}}</li>
@@ -32,5 +32,14 @@
 </script>
 
 <style>
-
+  .QuestionCard{
+    background-color: red;
+  }
+  .QuestionCard li{
+    background-color: lightgray;
+    padding: 30px;
+    float: left;
+    width: 15%;
+    align-content: center;
+  }
 </style>

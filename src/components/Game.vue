@@ -1,19 +1,30 @@
 <template>
-  <div>
-    <QuestionCard
-      :question="currentQuestion"
-      :onAnswer="checkAnswer"
-    />
+  <div class="Game">
+    <div class="QuestionCardWrapper">
+      <QuestionCard
+        :question="currentQuestion"
+        :onAnswer="checkAnswer"
+      />
+    </div>
+    <aside class="List">
+      <SideBar
+        :questions="questions"
+        :onClick="changeQuestion"
+      />
+    </aside>
   </div>
 </template>
 
 <script>
   import data from "../../db"
   import QuestionCard from "./QuestionCard"
+  import SideBar from "./SideBar"
+
   export default {
     name: 'Game',
     components:{
     	QuestionCard,
+      SideBar,
     },
     data () {
       return {
@@ -34,12 +45,14 @@
       },
     },
     methods:{
-    	checkAnswer: function (answer)
-      {
+    	checkAnswer: function (answer) {
         const isAnswerCorrect = answer === this.currentQuestion.correct_answer;
-        if (isAnswerCorrect){
+        if (isAnswerCorrect && this.current < this.questions.length-1){
         	this.current++;
         }
+      },
+      changeQuestion(index){
+    		this.current = index;
       }
     }
   }
@@ -47,5 +60,10 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  .Game{
+    display:flex;
+  }
+  .QuestionCardWrapper{
+    flex-grow: 1;
+  }
 </style>
